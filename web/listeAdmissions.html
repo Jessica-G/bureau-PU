@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<h3>Rechercher les admissions pour un iep :</h3> 
+iep : <input type="text" ng-model="ctrl.b.iep" /><br />
+<input type="submit" ng-click="ctrl.update()" value="Save" />
+
+<h3>Liste des admissions :</h3> 
+
+<div ng-repeat='b in ctrl.admission'>
+    Liste des admissions pour l'iep {{ b.iep}} :  
+    <table>
+        <tr>
+            <th> Id </th>
+            <th> Ipp </th>
+            <th> Iep </th>
+            <th> Nom </th>
+            <th> Prénom </th>
+        </tr>
+        <tr ng-repeat='adm in b'>               
+            <td> {{ adm.id}} </td>
+            <td> {{ adm.couleur}} </td>
+        </tr>  
+    </table>
+    <input type="button" value="Effacer la boite" ng-click="ctrl.delete(b)"/> 
+    <a ng-href="#/boite/edit/{{b.id}}"/> Editer la boite </a>
+<hr/>
+</div> 
